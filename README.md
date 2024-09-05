@@ -43,5 +43,4 @@ This is a web application built using **Next.js** on the frontend, integrated wi
 - **[Django REST Framework](https://www.django-rest-framework.org/)**: For building API endpoints in Django.
 
 
-### Testing dependencies
-`-npm install --save-dev jest @testing-library/react @testing-library/jest-dom.`
+
