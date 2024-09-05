@@ -1,7 +1,11 @@
-import LineChart from '../components/LineChart';
-import BarChart from '../components/BarChart';
-import PieChart from '../components/PieChart';
-import CandlestickChart from '../components/CandlestickChart';
+"use client";
+
+import dynamic from 'next/dynamic';
+
+const LineChart = dynamic(() => import('../components/LineChart'), { ssr: false });
+const BarChart = dynamic(() => import('../components/BarChart'), { ssr: false });
+const PieChart = dynamic(() => import('../components/PieChart'), { ssr: false });
+const CandlestickChart = dynamic(() => import('../components/CandlestickChart'), { ssr: false });
 
 const HomePage = () => {
   return (
