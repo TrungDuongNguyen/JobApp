@@ -24,6 +24,12 @@ This is a web application built using **Next.js** on the frontend, integrated wi
 4. Access the frontend on `http://localhost:3000` and backend API on `http://localhost:8000`.
 
 
+## Setup Instructions(Using Docker)
+
+1. Clone the repository.
+2. Navigate to the `Jobapp` directory and run `docker-compose up --build` 
+
+
 ### Frontend:
 - **[Next.js](https://nextjs.org/)**: A React-based framework for server-side rendering and building web applications.
 - **[ApexCharts](https://apexcharts.com/)**: A modern charting library.
@@ -37,3 +43,5 @@ This is a web application built using **Next.js** on the frontend, integrated wi
 - **[Django REST Framework](https://www.django-rest-framework.org/)**: For building API endpoints in Django.
 
 
+### Testing dependencies
+`-npm install --save-dev jest @testing-library/react @testing-library/jest-dom.`
