@@ -1,6 +1,3 @@
-// src/components/CandlestickChart.tsx
-"use client";
-
 import { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
@@ -18,7 +15,7 @@ const CandlestickChart = () => {
           series: [
             {
               name: 'Candlestick Data',
-              data: response.data.data, // Assuming API returns [{x: Date, o: value, h: value, l: value, c: value}]
+              data: response.data.data, // Ensure the data is correctly passed
             },
           ],
           options: {
@@ -27,7 +24,7 @@ const CandlestickChart = () => {
               height: 350,
             },
             xaxis: {
-              type: 'datetime',
+              type: 'datetime', // Ensures that 'x' is treated as a date
             },
           },
         });
@@ -43,6 +40,9 @@ const CandlestickChart = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
+  // Ensure the chart is only rendered when data is available
+  if (!chartData) return null;
 
   return (
     <div>

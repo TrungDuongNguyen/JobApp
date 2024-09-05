@@ -1,22 +1,22 @@
 # backend/Dockerfile
 
-# Use an official Python runtime as a parent image
+# Use the official Python image from Docker Hub
 FROM python:3.10-slim
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt .
 
-# Install dependencies
-RUN pip install -r requirements.txt
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Copy the rest of the app into the container
 COPY . .
 
-# Expose the port Django will run on
+# Expose the port that the Django app will run on
 EXPOSE 8000
 
-# Command to run Django development server
+# Run the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
