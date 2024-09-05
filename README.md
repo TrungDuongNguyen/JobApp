@@ -2,13 +2,12 @@
 
 ## Project Overview
 
-This project consists of a **Next.js** frontend and a **Django** backend integrated with **PostgreSQL** as the database. The entire environment is containerized using **Docker**, making it easy to set up and deploy.
+This project consists of a **Next.js** frontend and a **Django** backend. The entire environment is containerized using **Docker**, making it easy to set up and deploy.
 
 ### Features
 
 - **Next.js Frontend**: Dynamic dashboard displaying various charts using ApexCharts.
 - **Django Backend**: REST API for serving data, with endpoints returning chart data.
-- **PostgreSQL Database**: Database for the backend.
 - **Dockerized Environment**: Easy setup with Docker Compose for running the frontend, backend, and database.
 
 ---
