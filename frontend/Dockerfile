@@ -1,22 +1,22 @@
 # frontend/Dockerfile
 
-# Use an official Node.js runtime as a parent image
+# Use the official Node.js image from Docker Hub
 FROM node:18-alpine
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy the package.json and package-lock.json into the container
 COPY package*.json ./
 
-# Install dependencies
+# Install Node.js dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of the app's code into the container
 COPY . .
 
-# Expose the port that Next.js will run on
+# Expose the port the app will run on
 EXPOSE 3000
 
-# Command to run the Next.js development server
+# Run the Next.js development server
 CMD ["npm", "run", "dev"]
