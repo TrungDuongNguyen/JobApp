@@ -1,56 +1,52 @@
-"use client"; // Ensures this component runs on the client side
+// src/components/CandlestickChart.tsx
+"use client";
 
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import axios from 'axios';
 
 const CandlestickChart = () => {
-  const [chartData] = useState({
-    series: [
-      {
-        data: [
-          {
-            x: new Date(1538778600000),
-            y: [6629.81, 6650.5, 6623.04, 6633.33],
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/candlestick-data/');
+        setChartData({
+          series: [
+            {
+              name: 'Candlestick Data',
+              data: response.data.data, // Assuming API returns [{x: Date, o: value, h: value, l: value, c: value}]
+            },
+          ],
+          options: {
+            chart: {
+              type: 'candlestick',
+              height: 350,
+            },
+            xaxis: {
+              type: 'datetime',
+            },
           },
-          {
-            x: new Date(1538780400000),
-            y: [6632.01, 6643.59, 6620, 6630.11],
-          },
-          {
-            x: new Date(1538782200000),
-            y: [6630.71, 6648.95, 6623.34, 6635.65],
-          },
-        ],
-      },
-    ],
-    options: {
-      chart: {
-        type: 'candlestick',
-        height: 350,
-      },
-      title: {
-        text: 'Candlestick Chart',
-        align: 'left',
-      },
-      xaxis: {
-        type: 'datetime',
-      },
-      yaxis: {
-        tooltip: {
-          enabled: true,
-        },
-      },
-    },
-  });
+        });
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to load data');
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div>
-      <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
-        type="candlestick"
-        height={350}
-      />
+      {chartData && <ReactApexChart options={chartData.options} series={chartData.series} type="candlestick" height={350} />}
     </div>
   );
 };
