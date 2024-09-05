@@ -11,7 +11,7 @@ const LineChart = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch data from the Django API
+
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/line-chart-data/');
@@ -19,7 +19,7 @@ const LineChart = () => {
           series: [
             {
               name: 'Sales',
-              data: response.data.data, // Assuming your API returns an array like [10, 20, 30, 40]
+              data: response.data.data, 
             },
           ],
           options: {
@@ -28,7 +28,7 @@ const LineChart = () => {
               type: 'line',
             },
             xaxis: {
-              categories: response.data.labels, // Assuming API returns ["Jan", "Feb", "Mar", "Apr"]
+              categories: response.data.labels, 
             },
           },
         });

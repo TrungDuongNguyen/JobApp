@@ -25,7 +25,7 @@ const CandlestickChart = () => {
               height: 350,
             },
             xaxis: {
-              type: 'datetime', // Ensures that 'x' is treated as a date
+              type: 'datetime', 
             },
           },
         });

@@ -18,7 +18,7 @@ const BarChart = () => {
           series: [
             {
               name: 'Products',
-              data: response.data.data, // Assuming your API returns [100, 150, 200]
+              data: response.data.data, 
             },
           ],
           options: {
@@ -27,7 +27,7 @@ const BarChart = () => {
               type: 'bar',
             },
             xaxis: {
-              categories: response.data.labels, // Assuming API returns ["Product A", "Product B", "Product C"]
+              categories: response.data.labels, 
             },
           },
         });
