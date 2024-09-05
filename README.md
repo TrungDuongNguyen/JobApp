@@ -23,7 +23,6 @@ This is a web application built using **Next.js** on the frontend, integrated wi
 3. Navigate to the `backend` directory, create a virtual environment, install dependencies(python3), and run the Django server. `sudo atp install python 3` `pip install djangorestframework` `python3 manage.py runserver`
 4. Access the frontend on `http://localhost:3000` and backend API on `http://localhost:8000`.
 
-## Libraries and Tools
 
 ### Frontend:
 - **[Next.js](https://nextjs.org/)**: A React-based framework for server-side rendering and building web applications.
@@ -37,17 +36,4 @@ This is a web application built using **Next.js** on the frontend, integrated wi
 - **[Django](https://www.djangoproject.com/)**: Backend framework to serve API endpoints for chart data.
 - **[Django REST Framework](https://www.django-rest-framework.org/)**: For building API endpoints in Django.
 
-Instructions:
-Clone Repository
 
-Backend
-1. sudo atp install python 3
-
-2. pip install djangorestframework
-
-3. python3 manage.py runserver
-
-frontend
-
-1. npm install
-2. npm run dev
